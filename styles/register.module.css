@@ -1,0 +1,67 @@
+.container{
+    border: 1px black solid;
+    text-align: center;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 6%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 60vh;
+    border-radius: 20px;
+}
+
+.title{
+    margin-top: 6%;
+    font-weight: 900;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.forminput{
+    border: 1px solid black;
+    width: 57%;
+    height: 70%;
+    border-radius: 4px;
+}
+
+.formlabel{
+    font-size: 14px;
+    margin-right: 15%;
+}
+
+.formspan{
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.BntRegister{
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    margin-left: 110px;
+    margin-right: 110px;
+    border-radius: 11px;
+    line-height: 1.125;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    text-align: center;
+    -webkit-text-decoration: none;
+    text-decoration: none;  
+}
+
+.container2{
+    display: flex;
+}
+
+.iconFacebook{
+
+}
+
+.iconGoogle{
+    
+}
