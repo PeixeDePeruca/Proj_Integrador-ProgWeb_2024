@@ -9,7 +9,7 @@
     flex: 1 0 auto;
     padding-left: 24px;
     padding-right: 24px;
-    height: 60vh;
+    height: 63vh;
     border-radius: 20px;
 }
 
@@ -19,6 +19,8 @@
     text-align: center;
     font-size: 2rem;
 }
+
+
 
 .forminput{
     border: 1px solid black;
@@ -56,12 +58,25 @@
 
 .container2{
     display: flex;
+    margin-top: 5%;
+    margin-left: 38%;
 }
 
-.iconFacebook{
-
+.IconFacebook{
+    height: 30px;
+    width: 30px;
 }
 
-.iconGoogle{
-    
+.IconGoogle {
+    height: 40px;
+    width: 40px;
+    margin-block-start: -1%;
+    margin-left: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.IconGoogle img {
+    height: 100%; /* Garante que a imagem ocupe toda a altura do container */
+    width: auto; /* Mantém a proporção da imagem */
 }

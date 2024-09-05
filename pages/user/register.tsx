@@ -11,17 +11,38 @@ export default function Register() {
                 <p>Insira seu e-mail e verificaremos se você já tem uma conta. <br />Caso contrário, criaremos uma nova.</p>
 
                     <br /><br />
+                
+                <div>
+                    <label className={styles.formName}>Nome</label>
+                    <input className={styles.formNameInput} type="text" />
+                </div>
 
-                <div className={styles.formgroup}>
-                    <label className={styles.formlabel}>Email</label>
-                    <span className={styles.formspan}>Ou faça login com nome de usuário</span>
+                <br />
+
+                <div>
+                    {/*<label className={styles.formlabel}>Email</label>*/}
+                    {/*<span className={styles.formspan}>Ou faça login com nome de usuário</span>*/}
                     <br />
-                    <input type="text" className={styles.forminput} />
+                    <input type="text" placeholder='Email' className={styles.forminput} />
+                </div>
+
+                <br />
+
+                <div>
+                    <label>Senha</label>
+                    <input type="text" />
+                </div>
+
+                <br />
+
+                <div>
+                    <label>Confirmação de Senha</label>
+                    <input type="text" />
                 </div>
 
                 <br /><br />
                 
-                <button className={styles.BntRegister}>Continuar com Email</button>
+                <button className={styles.BntRegister}>Criar sua Conta</button>
 
                 <br /><br />
                 
