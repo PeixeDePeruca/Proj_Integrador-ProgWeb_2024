@@ -9,7 +9,7 @@
     flex: 1 0 auto;
     padding-left: 24px;
     padding-right: 24px;
-    height: 63vh;
+    height: 68vh;
     border-radius: 20px;
 }
 
@@ -19,8 +19,6 @@
     text-align: center;
     font-size: 2rem;
 }
-
-
 
 .forminput{
     border: 1px solid black;
@@ -79,4 +77,25 @@
 .IconGoogle img {
     height: 100%; /* Garante que a imagem ocupe toda a altura do container */
     width: auto; /* Mantém a proporção da imagem */
+}
+
+.formNameInput{
+    border: 1px solid black;
+    width: 57%;
+    height: 140%;
+    border-radius: 4px;
+}
+
+.InputPassword{
+    border: 1px solid black;
+    width: 57%;
+    height: 140%;
+    border-radius: 4px;
+}
+
+.InputConfirmPassword{
+    border: 1px solid black;
+    width: 57%;
+    height: 140%;
+    border-radius: 4px;
 }

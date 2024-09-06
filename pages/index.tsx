@@ -1,7 +1,18 @@
 import styles from "@/styles/homePage.module.css";
-import { symlink } from "fs";
+import React from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
+
+  function handleBottonRouterRegister(){
+    router.push('/user/register')
+  };
+
+  function handleBottonRouter(){
+    router.push('/user/login')
+  }
+
   return (
     <main className={styles.container}>
       <div className={styles.container2}>
@@ -89,7 +100,7 @@ export default function Home() {
       
       <div>
         <button className={styles.BtnLogin}>Entrar</button>
-        <button className={styles.BtnRegister}>Registrar</button>
+        <button className={styles.BtnRegister} onClick={handleBottonRouterRegister}>Registrar</button> 
       </div>
     </div>
 

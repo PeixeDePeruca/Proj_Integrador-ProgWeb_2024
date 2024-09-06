@@ -4,20 +4,19 @@ export default function Register() {
     return(
         <main>
             <div className={styles.container}>
-                <h1 className={styles.title}>Cadastre-se gratuitamente ou faça login</h1>
+                <h1 className={styles.title}>Cadastre-se Gratuitamente</h1>
 
                     <br /><br />
 
                 <p>Insira seu e-mail e verificaremos se você já tem uma conta. <br />Caso contrário, criaremos uma nova.</p>
 
-                    <br /><br />
+                    <br />
                 
                 <div>
-                    <label className={styles.formName}>Nome</label>
-                    <input className={styles.formNameInput} type="text" />
+                    {/*<label className={styles.formName}>Nome</label>*/}
+                    <input className={styles.formNameInput} type="text" placeholder= 'Nome' />
                 </div>
 
-                <br />
 
                 <div>
                     {/*<label className={styles.formlabel}>Email</label>*/}
@@ -29,15 +28,15 @@ export default function Register() {
                 <br />
 
                 <div>
-                    <label>Senha</label>
-                    <input type="text" />
+                    {/*<label>Senha</label>*/}
+                    <input type="text" className={styles.InputPassword} placeholder='Senha'/>
                 </div>
 
                 <br />
 
                 <div>
-                    <label>Confirmação de Senha</label>
-                    <input type="text" />
+                    {/*<label>Confirmação de Senha</label>*/}
+                    <input type="text" className={styles.InputConfirmPassword} placeholder='Confirmação de Senha' />
                 </div>
 
                 <br /><br />
@@ -55,4 +54,4 @@ export default function Register() {
             </div> 
         </main>
     );
-}
+}''
