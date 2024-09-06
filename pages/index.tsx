@@ -5,11 +5,11 @@ import { useRouter } from "next/router";
 export default function Home() {
   const router = useRouter();
 
-  function handleBottonRouterRegister(){
+  function handleBottonRegister(){
     router.push('/user/register')
   };
 
-  function handleBottonRouter(){
+  function handleBottonLogin(){
     router.push('/user/login')
   }
 
@@ -99,8 +99,8 @@ export default function Home() {
       <br /><br />
       
       <div>
-        <button className={styles.BtnLogin}>Entrar</button>
-        <button className={styles.BtnRegister} onClick={handleBottonRouterRegister}>Registrar</button> 
+        <button className={styles.BtnLogin} onClick={handleBottonLogin}>Entrar</button>
+        <button className={styles.BtnRegister} onClick={handleBottonRegister}>Registrar</button> 
       </div>
     </div>
 
