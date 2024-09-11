@@ -119,12 +119,11 @@ export default function Home() {
           {/*{data != undefined && data instanceof Array?*/}
             {/*data.map(Game => (*/}
               <div onClick={() => {}} className={styles.card}>
-                <img src="" className={styles.cardImg} alt="" />
                 <div className={styles.cardInfos}>
-                  <h2>Nome Do Jogo</h2>
-                  <p>Data de Lançamento do Jogo</p>
-                  <p>Genero do Jogo</p>
-                  <p>Descrição do Jogo</p>
+                  <h2>Wolverine</h2>
+                  <p>2010</p>
+                  <p>Ação</p>
+                  <p>Violencia, muito Legal</p>
                 </div>
                 <div>
 
