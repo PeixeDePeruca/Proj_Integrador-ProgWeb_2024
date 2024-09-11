@@ -19,3 +19,67 @@
     text-align: center;
     font-size: 2rem;
 }
+
+
+.formspan{
+    margin-left: 90px;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.forminput, .InputPassword {
+    border: 1px solid black;
+    width: 57%; /* Ajuste a largura para o container */
+    border-radius: 4px; 
+    box-sizing: border-box; /* Inclui padding e border na largura e altura */
+}
+
+.forminput {
+    height: 40px; /* Ajuste a altura conforme necessário */
+}
+
+.InputPassword {
+    height: 40px; /* Ajuste a altura conforme necessário */
+}
+
+.BntLogin{
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    margin-left: 110px;
+    margin-right: 110px;
+    border-radius: 11px;
+    line-height: 1.125;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    text-align: center;
+    -webkit-text-decoration: none;
+    text-decoration: none;  
+}
+
+.container2{
+    display: flex;
+    margin-top: 5%;
+    margin-left: 38%;
+}
+
+.IconFacebook{
+    height: 30px;
+    width: 30px;
+}
+
+.IconGoogle {
+    height: 40px;
+    width: 40px;
+    margin-block-start: -1%;
+    margin-left: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.IconGoogle img {
+    height: 100%;
+    width: auto; 
+}

@@ -9,7 +9,7 @@
     flex: 1 0 auto;
     padding-left: 24px;
     padding-right: 24px;
-    height: 68vh;
+    height: 80vh;
     border-radius: 20px;
 }
 
@@ -23,7 +23,7 @@
 .forminput{
     border: 1px solid black;
     width: 57%;
-    height: 70%;
+    height: 140%;
     border-radius: 4px;
 }
 
@@ -75,8 +75,8 @@
 }
 
 .IconGoogle img {
-    height: 100%; /* Garante que a imagem ocupe toda a altura do container */
-    width: auto; /* Mantém a proporção da imagem */
+    height: 100%;
+    width: auto; 
 }
 
 .formNameInput{

@@ -9,6 +9,51 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model user {
+  id  Int @id @unique @default(autoincrement())
+
+  name  String?
+  email String  @unique
+  username  String  @unique
+  password  String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  ratings rating[]
+}
+
+
+model movie {
+  id  Int @id @unique @default(autoincrement())
+
+  name  String  @unique
+  releaseDate String
+  imageURL  String?
+  videoURL String?
+  description String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  ratings rating[]
+}
+
+model rating {
+  id  Int @id @unique @default(autoincrement())
+
+  value Int
+  comment String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  userId Int
+  user user @relation(fields: [userId] , references: [id])
+  movieId Int
+  movie movie @relation(fields: [movieId] , references: [id])
 }

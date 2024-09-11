@@ -1,116 +1,156 @@
-.container{
-    border: 0.1rem transparent solid;
-    margin-left: 0%;
-    margin-right: 80%;
-}
+    .container{
+        border: 0.1rem black solid;
+        margin-right: 75%;
+        display: grid;
+    }
 
-.NavSeachBar{
-    display: flex;
+    .NavSeachBar{
+        display: flex;
+        
+    }
+
+    .lupa{
+        width: 10%;
+        height: 10%;
+    }
+
+    .SearchBar{
+        border: 1px black solid;
+        padding: 4px 12px;
+        border-radius: 10px;
+    }
+
+    .container2{
+        display: flex;
+    }
+
+    .imgMario{
+        height: 60px;
+        width: 60px;
+        
+    }
+
+    .title{
+        font-size: 23px;
+    }
+
+    .container3{
+        margin: 10px;
+    }
+
+    .BtnLogin{
+        margin-right: 10px;
+        border: 1px rgba(0, 0, 0, 0.235) solid;
+        padding: 6px 45px;
+        border-radius: 8px;
+        background-color: #fff;
+        border: 1px solid #bbc4c4;
+        color: #181c25;
+    }
+
+    .BtnRegister{
+        margin-right: 10px;
+        border: 1px black solid;
+        padding: 6px 45px;
+        border-radius: 8px;
+        background-color: black;
+        color: white;
+    }
+
+    .regionWrapper {
+        display: flex;
+        align-items: center;
+        border: 1px solid rgb(118, 118, 118);
+        border-radius: 8px;
+        padding: 1px 3px;
+        background-color: white;
+        width: 90%;
+        max-width: 400px;
+    }
     
-}
-
-.lupa{
-    width: 10%;
-    height: 10%;
-}
-
-.SearchBar{
-    border: 1px black solid;
-    padding: 4px 12px;
-    border-radius: 10px;
-}
-
-.container2{
-    display: flex;
-}
-
-.imgMario{
-    height: 60px;
-    width: 60px;
+    .regionLabel {
+        color: #41495a;
+        font-size: 16px;
+        margin-right: 5px;
+        white-space: nowrap;
+    }
     
-}
+    .regionSelect {
+        background: none;
+        border: none;
+        color: #41495a;
+        font-size: 16px;
+        flex: 1; 
+        outline: none;
+        padding: 8px 0; 
+    }
 
-.title{
-    font-size: 23px;
-}
-
-.container3{
-    margin: 10px;
-}
-
-.BtnLogin{
-    margin-right: 10px;
-    border: 1px rgba(0, 0, 0, 0.235) solid;
-    padding: 6px 45px;
-    border-radius: 8px;
-    background-color: #fff;
-    border: 1px solid #bbc4c4;
-    color: #181c25;
-}
-
-.BtnRegister{
-    margin-right: 10px;
-    border: 1px black solid;
-    padding: 6px 45px;
-    border-radius: 8px;
-    background-color: black;
-    color: white;
-}
-
-.regionWrapper {
-    display: flex;
-    align-items: center;
-    border: 1px solid rgb(118, 118, 118);
-    border-radius: 8px;
-    padding: 1px 3px;
-    background-color: white;
-    width: 90%;
-    max-width: 400px;
-  }
-  
-  .regionLabel {
-    color: #41495a;
-    font-size: 16px;
-    margin-right: 5px;
-    white-space: nowrap;
-  }
-  
-  .regionSelect {
-    background: none;
-    border: none;
-    color: #41495a;
-    font-size: 16px;
-    flex: 1; 
-    outline: none;
-    padding: 8px 0; 
-}
-
-.container3{    
-    padding-left: 30px;
-    border: 1px transparent solid;
-}
+    .container3{    
+        padding-left: 30px;
+        border: 1px transparent solid;
+    }
 
 
-.sidebar {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
+    .sidebar {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
 
-.menuItem {
-    margin-left: 25px;
-    display: flex;
-    align-items: center; 
-    padding: 10px 0; 
-}
-  
-.icon {
-    width: 24px; 
-    height: 10px; 
-    margin-right: 10px; 
-}
-  
-.text {
-    font-size: 16px; 
-    color: #000; 
-}
+    .menuItem {
+        margin-left: 25px;
+        display: flex;
+        align-items: center; 
+        padding: 10px 0; 
+    }
+    
+    .icon {
+        width: 24px; 
+        height: 10px; 
+        margin-right: 10px; 
+    }
+    
+    .text {
+        font-size: 16px; 
+        color: #000; 
+    }
+
+    .mainContainer {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .leftContainer, .rightContainer {
+        margin-top: -190%;
+        display: flex;
+    }
+
+    .card{
+        width: 200%;
+        height: 38vh;
+        background-color: rgba(56, 58, 61, 0.527);
+        border: 1px solid black;
+        border-radius: 6px;
+        display: grid;
+        padding: 1%;
+        margin-left: 140%;
+        position: relative;
+    }
+
+    .cardImg {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-right: 20px;
+    }
+
+    .cardInfos h2 {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+
+    .cardInfos p {
+        margin: 5px 0;
+        color: #666;
+    }
