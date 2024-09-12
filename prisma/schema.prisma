@@ -28,7 +28,7 @@ model user {
 }
 
 
-model movie {
+model game {
   id  Int @id @unique @default(autoincrement())
 
   name  String  @unique
@@ -54,6 +54,6 @@ model rating {
 
   userId Int
   user user @relation(fields: [userId] , references: [id])
-  movieId Int
-  movie movie @relation(fields: [movieId] , references: [id])
+  gameId Int
+  game game @relation(fields: [gameId] , references: [id])
 }

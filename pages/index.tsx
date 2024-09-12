@@ -120,8 +120,8 @@ export default function Home() {
             {/*data.map(Game => (*/}
               <div onClick={() => {}} className={styles.card}>
                 <div className={styles.cardInfos}>
-                  <h2>Wolverine</h2>
-                  <p>2010</p>
+                  <h2>Gta San Andressa</h2>
+                  <p>2004</p>
                   <p>Ação</p>
                   <p>Violencia, muito Legal</p>
                 </div>
