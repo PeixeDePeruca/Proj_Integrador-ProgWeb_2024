@@ -29,10 +29,12 @@ export default function Home() {
               <img className={styles.icon} src="/path/to/inicio-icon.png" alt="Início" />
               <span className={styles.text}>Início</span>
             </li>
+            
             <li className={styles.menuItem}>
               <img className={styles.icon} src="/PS5.icon.png" alt="PS5" />
               <span className={styles.text}>PS5</span>
             </li>
+
             <li className={styles.menuItem}>
               <img className={styles.icon} src="/588257.png" alt="XBOX" />
               <span className={styles.text}>XBOX</span>
@@ -41,14 +43,12 @@ export default function Home() {
               <img className={styles.icon} src="/path/to/switch-icon.png" alt="Switch" />
               <span className={styles.text}>Switch</span>
             </li>
+
             <li className={styles.menuItem}>
               <img className={styles.icon} src="/path/to/reviews-icon.png" alt="Reviews" />
               <span className={styles.text}>Reviews</span>
             </li>
-            <li className={styles.menuItem}>
-              <img className={styles.icon} src="/path/to/cinema-icon.png" alt="Cinema & TV" />
-              <span className={styles.text}>Cinema & TV</span>
-            </li>
+        
             <li className={styles.menuItem}>
               <img className={styles.icon} src="/path/to/anime-icon.png" alt="Anime" />
               <span className={styles.text}>Anime</span>
@@ -57,10 +57,7 @@ export default function Home() {
               <img className={styles.icon} src="/path/to/tech-icon.png" alt="Tech" />
               <span className={styles.text}>Tech</span>
             </li>
-            <li className={styles.menuItem}>
-              <img className={styles.icon} src="/path/to/descontos-icon.png" alt="Descontos" />
-              <span className={styles.text}>Descontos</span>
-            </li>
+         
             <li className={styles.menuItem}>
               <img className={styles.icon} src="/path/to/videos-icon.png" alt="Videos" />
               <span className={styles.text}>Videos</span>
@@ -69,10 +66,14 @@ export default function Home() {
               <img className={styles.icon} src="/path/to/galerias-icon.png" alt="Galerias" />
               <span className={styles.text}>Galerias</span>
             </li>
-            <li className={styles.menuItem}>
+
+
+            {/*<li className={styles.menuItem}>
               <img className={styles.icon} src="/path/to/ver-mais-icon.png" alt="Ver Mais" />
               <span className={styles.text}>Ver Mais</span>
-            </li>
+            </li>*/}
+
+
           </ul>
         </div>
 
