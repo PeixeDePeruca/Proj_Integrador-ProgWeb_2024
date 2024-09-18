@@ -41,6 +41,7 @@ model game {
   updated_at DateTime @updatedAt
 
   ratings rating[]
+  genres genre[]
 }
 
 model rating {
@@ -56,4 +57,15 @@ model rating {
   user user @relation(fields: [userId] , references: [id])
   gameId Int
   game game @relation(fields: [gameId] , references: [id])
+}
+
+model genre {
+  id Int @id @unique @default(autoincrement())
+
+  name String @unique
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  games game[]
 }

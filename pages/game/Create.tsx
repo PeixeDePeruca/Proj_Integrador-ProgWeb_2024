@@ -79,35 +79,51 @@ export default function CreateGame() {
             <Head>
                 <title>Página para o Cadastro de Jogos</title>
             </Head>
+            <p className={styles.p}>a</p>
             <div>
                 <form className={styles.formContainer} onSubmit={formSubmit}>
-                    <h1>Fazer a Interface da Página de Criação de Jogos</h1>
+                    <h1 className={styles.title}>Tales News</h1>
                     {/* Adicione os campos do formulário aqui */}
+                    <br />
                     <input
                         type="text"
+                        className={styles.input}
                         value={formData.name}
                         onChange={(e) => handleFormEdit(e, 'name')}
                         placeholder="Nome do jogo"
                     />
+                    <br />
                     <input
                         type="date"
+                        className={styles.inputDate}
                         value={formData.releaseDate}
                         onChange={(e) => handleFormEdit(e, 'releaseDate')}
                         placeholder="Data de lançamento"
                     />
+                    <br />
                     <input
                         type="text"
+                        className={styles.input}
                         value={formData.videoURL}
                         onChange={(e) => handleFormEdit(e, 'videoURL')}
                         placeholder="URL do vídeo"
                     />
+                    <br />
                     <textarea
+                        className={styles.input}
                         value={formData.description}
                         onChange={(e) => handleFormEdit(e, 'description')}
                         placeholder="Descrição do jogo"
                     />
-                    <input type="file" onChange={handleImageEdit} />
-                    <button type="submit">Enviar</button>
+                    <br />
+                    <input
+                        className={styles.inputFile}
+                        type="file" onChange={handleImageEdit} />
+                    <br />
+                    <button
+                        className={styles.BtnSend} 
+                        type="submit">Enviar</button>
+                    <br />
                 </form>
             </div>
         </main>

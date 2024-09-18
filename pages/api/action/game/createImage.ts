@@ -10,7 +10,7 @@ export const config = {
 
 export default async ( req:NextApiRequest , res:NextApiResponse ) => {
     if ( req.method != 'POST' ) {
-        return res.status(403).json({ message: 'Method not allowed' });
+        return res.status(403).json({ message: 'Method not allowed' }); 
     }
 
     // Recebe um arquivo e verifica se é uma imagem
