@@ -14,7 +14,7 @@
 }
 
 .title{
-    margin-top: 6%;
+    margin-top: 10%;
     font-weight: 900;
     text-align: center;
     font-size: 2rem;
@@ -22,8 +22,7 @@
 
 
 .formspan{
-    margin-left: 90px;
-    font-size: 12px;
+    font-size: 16px;
     text-decoration: underline;
 }
 
@@ -36,9 +35,11 @@
 
 .forminput {
     height: 40px; /* Ajuste a altura conforme necessário */
+    margin-top: 20px;
 }
 
 .InputPassword {
+    margin-top: 15px;
     height: 40px; /* Ajuste a altura conforme necessário */
 }
 
@@ -48,6 +49,7 @@
     color: white;
     margin-left: 110px;
     margin-right: 110px;
+    margin-top: 15px;
     border-radius: 11px;
     line-height: 1.125;
     padding: 10px;
