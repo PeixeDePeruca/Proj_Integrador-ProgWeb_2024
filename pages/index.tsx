@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import { checkToken } from "@/services/tokenConfig";
 import { deleteCookie, getCookie } from "cookies-next";
 import Link from "next/link";
+import { prisma } from "@/db";
+import select from "./api/action/game/select";
 
 export default function Home() {
   const router = useRouter();
@@ -72,18 +74,11 @@ export default function Home() {
     return `${day}/${month}/${year}`;
   }
 
-  function handleBottonRegister() {
-    router.push("/user/register");
-  }
-
-  function handleBottonLogin() {
-    router.push("/");
-  }
 
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <h1 className={styles.title}>Tales News</h1>
+        <h1 className={styles.title} onClick={logOut}>Tales News</h1>
 
         <a href="" className={styles.p}>
           Inicio
@@ -105,11 +100,9 @@ export default function Home() {
         </div>
 
         <div className={styles.NavBarLog}>
-          <button className={styles.BtnLogin} onClick={handleBottonLogin}>
-            Entrar
-          </button>
-          <button className={styles.BtnRegister} onClick={handleBottonRegister}>
-            Registrar-se
+          <label>Teste</label>
+          <button className={styles.BtnRegister} onClick={logOut}>
+            Sair
           </button>
         </div>
       </div>

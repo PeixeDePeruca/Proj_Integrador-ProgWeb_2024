@@ -114,8 +114,10 @@ export default function game({ gameName }: any) {
         router.push("/user/login")
     }
 
-
-
+    function handleButtonDownload() {
+        router.push("https://grand-theft-auto-san-andreas-game.softonic.com.br/")
+    }
+    
 
     return (
         <main id={styles.main} className="flex min-h-screen flex-col">
@@ -134,6 +136,12 @@ export default function game({ gameName }: any) {
                                 <p>Data de lançamento: {data.releaseDate}</p>
                                 <p> Descrição: {data.description}</p>
                                 <p>Generos: "Violência" e "Muito Legal"</p>
+
+                                <div className={styles.ContainerDownload} onClick={handleButtonDownload}>
+                                    <h3 className={styles.BtnDownload}>Download </h3>
+                                    <a className={styles.TextDownload}>para Windows</a>
+                                    <img className={styles.imgDownload} src="/download-3_icon-icons.webp" alt="" />
+                                </div>
                             </div>
                         </div>
 

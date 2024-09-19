@@ -44,6 +44,10 @@ export default function Login() {
         }
     }
 
+    function handleBottonRegister() {
+        router.push('/user/register')
+    }
+
     return (
         <main className={styles.container}>
             <Head>
@@ -53,17 +57,17 @@ export default function Login() {
 
             <br /><br />
 
-            <p>Insira seu e-mail e verificaremos se você já tem uma conta. <br />Caso contrário, criaremos uma nova.</p>
+            <p>Insira seu dados, caso seja novo por aqui, <span className={styles.formspan} onClick={handleBottonRegister}>Crie uma conta!</span></p>
 
             <br />
 
             <div>
                 <form onSubmit={formSubmit}>
-                    <span className={styles.formspan}>Ou faça login com nome de usuário</span>
+                    
                     <input
                         className={styles.forminput}
                         type="email"
-                        placeholder="Login"
+                        placeholder="Email"
                         onChange={(event) => { handleFormEdit(event, 'email') }}
                     /><br /><br />
                     <input
