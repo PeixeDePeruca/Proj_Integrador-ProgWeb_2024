@@ -1,41 +1,48 @@
 .container{
-    border: 0.1rem black;
-    margin-right: 75%;
-    display: grid;
-}
-
-.NavSeachBar{
-    display: flex;
-    
-}
-
-.lupa{
-    width: 10%;
-    height: 10%;
-}
-
-.SearchBar{
     border: 1px black solid;
-    padding: 4px 12px;
-    border-radius: 10px;
-}
-
-.container2{
     display: flex;
-}
-
-.imgMario{
-    height: 60px;
-    width: 60px;
-    
 }
 
 .title{
-    font-size: 23px;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-block-end: 1%;
 }
 
-.container3{
-    margin: 10px;
+.p{
+    margin-top: 1.65%;
+    margin-left: 5%;
+    font-size: 20px;
+}
+
+.NavBarLog{
+    margin-top: 1.4%;
+    margin-left: 5%;
+}
+
+.NavBarSearch{
+    margin-top: 1.5%;
+    margin-left: 5%;
+}
+
+.NavBarSearch::target-text{
+    font-size: 40px;
+}
+
+.BarSearch{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-right: 200px;
+    padding-top: 5px;
+    padding-block-end: 5px;
+    font-size: 20px;
+}
+
+.BarSearch::placeholder{
+    font-size: 20px;
+    padding-left: 15px;
 }
 
 .BtnLogin{
@@ -57,108 +64,38 @@
     color: white;
 }
 
-.regionWrapper {
-    display: flex;
-    align-items: center;
-    border: 1px solid rgb(118, 118, 118);
-    border-radius: 8px;
-    padding: 1px 3px;
-    background-color: white;
-    width: 90%;
-    max-width: 400px;
-  }
-  
-  .regionLabel {
-    color: #41495a;
-    font-size: 16px;
-    margin-right: 5px;
-    white-space: nowrap;
-  }
-  
-  .regionSelect {
-    background: none;
-    border: none;
-    color: #41495a;
-    font-size: 16px;
-    flex: 1; 
-    outline: none;
-    padding: 8px 0; 
-}
-
-.container3{    
-    padding-left: 30px;
-    border: 1px transparent solid;
-}
-
-
-.sidebar {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menuItem {
-    margin-left: 25px;
-    display: flex;
-    align-items: center; 
-    padding: 10px 0; 
-}
-  
-.icon {
-    width: 24px; 
-    height: 10px; 
-    margin-right: 10px; 
-}
-  
-.text {
-    font-size: 16px; 
-    color: #000; 
-}
-
-.mainContainer {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.rightContainer{
-    margin-top: -190%;
-}
-
 .card{
-    width: 65%;
-    height: 48vh;
-    background-image: url(../public/Grand_Theft_Auto_San_Andreas_capa.png);
-    border: 1px solid black;
+    width: 15%;
+    height: 15%;
+    background-size: cover;
     display: grid;
-    padding: 1%;
-    margin-left: 120%;
+    margin-left: 5%;
+    margin-top: 3%;
     position: relative;
 }
 
 .cardImg {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-right: 20px;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
 }
 
 .cardInfos{
-    margin-top: 110.9%;
-    border: 1px black solid;
-    background-color: rgba(243, 8, 8, 0.384);
-    margin-left: -1.8%;
-    margin-right: -1.8%;
-    color: white;
+    margin-left: 4%;
+    color: black;
 }
 
 .cardInfos h2 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    width: 100%;
+    float: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.cardInfos p {
-    color: black;
-    color: white;
+.cardInfos h2:hover{
+    color: rgb(250, 0, 0);
 }
+

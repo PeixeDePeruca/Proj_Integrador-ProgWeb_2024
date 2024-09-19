@@ -34,6 +34,22 @@ CREATE TABLE "rating" (
     CONSTRAINT "rating_gameId_fkey" FOREIGN KEY ("gameId") REFERENCES "game" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
+-- CreateTable
+CREATE TABLE "genre" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" DATETIME NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "_gameTogenre" (
+    "A" INTEGER NOT NULL,
+    "B" INTEGER NOT NULL,
+    CONSTRAINT "_gameTogenre_A_fkey" FOREIGN KEY ("A") REFERENCES "game" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT "_gameTogenre_B_fkey" FOREIGN KEY ("B") REFERENCES "genre" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "user_id_key" ON "user"("id");
 
@@ -51,3 +67,15 @@ CREATE UNIQUE INDEX "game_name_key" ON "game"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "rating_id_key" ON "rating"("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "genre_id_key" ON "genre"("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "genre_name_key" ON "genre"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "_gameTogenre_AB_unique" ON "_gameTogenre"("A", "B");
+
+-- CreateIndex
+CREATE INDEX "_gameTogenre_B_index" ON "_gameTogenre"("B");
