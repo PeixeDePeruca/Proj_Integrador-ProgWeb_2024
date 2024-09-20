@@ -12,6 +12,7 @@ export default async ( req:NextApiRequest , res:NextApiResponse ) => {
     const response = await findGameByNameC(name);
 
     if ( response.status == 200 ) {
+        console.log(response.data)
         return res.status(response.status).json( { message: response.message , data: response.data } )
     }
     else {

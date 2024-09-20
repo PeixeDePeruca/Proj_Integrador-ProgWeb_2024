@@ -18,10 +18,12 @@
     margin-left: 1%;
     margin-block-end: 1%;
     color: white;
+    padding: 0 1em;
+    border-radius: 120px;
 }
 
 .TalesHomeBtn:hover{
-    box-shadow: 0 0 10px #fff;
+    box-shadow: 0 0 10px #fff inset;
 }
 
 .BarSearch{
@@ -46,7 +48,6 @@
     grid-template-columns: 30% 70%;
     background-color: rgba(49, 45, 45, 0.692);
     color: white;
-    margin-top: 3%;
     padding: 1%;
 }
 
@@ -212,6 +213,8 @@
     border-radius: 15px;
     background-color: white;
     height: 17%;
+    margin-top: 12%;
+    margin-left: 65%;
 }
 
 .BtnDownload{
@@ -230,4 +233,8 @@
     height: 40px;
     margin-left: 80%;
     margin-top: -18%;
+}
+
+.gameGenre::after{
+    content: ".";
 }

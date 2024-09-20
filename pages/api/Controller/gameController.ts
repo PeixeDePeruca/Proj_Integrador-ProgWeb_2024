@@ -1,6 +1,6 @@
 import { createGame , findGameByName , selectGames } from "../model/game";
 
-export async function createGameC(_name:string , _releaseDate: string, _description:string , _imageURL="" , _videoURL="" ) {
+export async function createGameC(_name:string , _releaseDate: string, _description:string , _imageURL="" , _videoURL="", _download:string ) {
     try{
         const gameByName = await findGameByName(_name);
 
@@ -8,7 +8,7 @@ export async function createGameC(_name:string , _releaseDate: string, _descript
             return {status: 400 , message: 'Name already registered'};
         }
 
-        const response = await createGame(_name , _releaseDate , _imageURL , _videoURL , _description);
+        const response = await createGame(_name , _releaseDate , _imageURL , _videoURL , _description, _download);
 
         return { status: 201 , message: 'Game created' , data: response };
     }

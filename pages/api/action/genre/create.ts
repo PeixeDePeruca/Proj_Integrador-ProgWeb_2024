@@ -1,15 +1,15 @@
 import { NextApiRequest , NextApiResponse } from "next";
-import { deleteRating } from "../../Controller/ratingController";
+import { createGenreC } from "../../Controller/genreController";
 
 export default async ( req:NextApiRequest , res:NextApiResponse ) => {
-    if ( req.method != 'DELETE' ) {
+    if ( req.method != 'POST' ) {
         return res.status(405).json({ message: 'Method not allowed' });
     }
 
-    const { email , gamename } = req.body;
-
+    const { name } = req.body;
+    
     // Enviar para o controller
-    const response = await deleteRating(email , gamename);
+    const response = await createGenreC(name);
 
     return res.status(response.status).json( { message: response.message } );
-} 
+}

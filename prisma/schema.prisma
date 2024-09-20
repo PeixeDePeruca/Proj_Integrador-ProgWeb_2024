@@ -36,12 +36,15 @@ model game {
   imageURL  String?
   videoURL String?
   description String?
+  genre String?
+  download String?
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   ratings rating[]
   genres genre[]
+  downloads download[]
 }
 
 model rating {
@@ -60,6 +63,17 @@ model rating {
 }
 
 model genre {
+  id Int @id @unique @default(autoincrement())
+
+  name String @unique
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  games game[]
+}
+
+model download {
   id Int @id @unique @default(autoincrement())
 
   name String @unique

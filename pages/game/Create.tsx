@@ -1,9 +1,13 @@
 import Head from "next/head";
 import styles from "@/styles/createGame.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function CreateGame() {
     const [imageUpload, setImageUpload] = useState(undefined);
+
+    const [genres, setGenres]: any = useState(undefined);
+
+    var selectedGenres: Array<string> = [];
 
     const [formData, setFormData] = useState({
         name: '',
@@ -12,6 +16,39 @@ export default function CreateGame() {
         videoURL: '',
         description: ''
     });
+
+    function handleCheckboxEdit(event: any, name: string) {
+        if (event.target.checked) {
+            selectedGenres.push(name);
+        }
+        else {
+            const index = selectedGenres.indexOf(name);
+
+            if (index != undefined)
+                selectedGenres.splice(index, 1);
+        }
+    }
+
+    async function fetchData() {
+        try {
+            const response = await fetch(`/api/action/genre/select`, {
+                method: 'GET'
+            });
+
+            const responseJson = await response.json();
+
+            setGenres(responseJson.data);
+
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        fetchData();
+
+    }, []);
 
     function handleImageEdit(event: any) {
         setImageUpload(event.target.files[0]);
@@ -119,6 +156,27 @@ export default function CreateGame() {
                     <input
                         className={styles.inputFile}
                         type="file" onChange={handleImageEdit} />
+                    <br />
+                    <input className={styles.InputGenre} type="check box" />
+                    <br />
+                    <div>
+                        {
+                            genres != undefined && genres instanceof Array ?
+
+                                genres.map(genre => (
+
+                                    <div className={styles.checkboxBox}>
+                                        <input type="checkbox" onChange={(e) => { handleCheckboxEdit(e, genre.name) }} />
+                                        <label>{genre.name}</label>
+                                    </div>
+
+                                ))
+
+                                :
+
+                                <p>No genres</p>
+                        }
+                    </div>
                     <br />
                     <button
                         className={styles.BtnSend} 
