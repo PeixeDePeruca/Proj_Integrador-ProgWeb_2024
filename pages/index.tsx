@@ -4,17 +4,83 @@ import { useRouter } from "next/router";
 import { checkToken } from "@/services/tokenConfig";
 import { deleteCookie, getCookie } from "cookies-next";
 import Link from "next/link";
-import { prisma } from "@/db";
-import select from "./api/action/game/select";
 
+// Componente Principal Home
 export default function Home() {
   const router = useRouter();
   const [data, setData]: any = useState(undefined);
-  const [saveData, setSaveData]: Array<any> = useState(undefined);
+  const [saveData, setSaveData]: any = useState(undefined);
   const [name, setName] = useState("");
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [selectedGameName, setSelectedGameName] = useState<string | null>(null);
+  const [selectedGameId, setSelectedGameId] = useState<number | null>(null);
 
+  // Função para buscar dados de jogos
+  async function fetchData() {
+    try {
+      const response = await fetch(`/api/action/game/select`, { method: "GET" });
+      const responseJson = await response.json();
+
+      setData(responseJson.data);
+      setSaveData(responseJson.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function toggleFavorite() {
+    const userId = getCookie("userId");
+  
+    if (userId && data?.id) {
+      if (isFavorite) {
+        // Remover dos favoritos
+        await fetch("/api/action/favorite/delete", {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId, gameId: data.id }),
+        });
+        setIsFavorite(false);
+      } else {
+        // Adicionar aos favoritos
+        await fetch("/api/action/favorite/create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId, gameId: data.id }),
+        });
+        setIsFavorite(true);
+      }
+    }
+  }
+  // Função para buscar o email
+  async function fetchDataEmail() {
+    try {
+      const userId = getCookie("userId"); // Obtenha o userId dos cookies
+      if (userId) {
+        const response = await fetch(`/api/action/user/select`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const responseJson = await response.json();
+
+        if (responseJson && responseJson.data) {
+          setUserEmail(responseJson.data.email);
+        } else {
+          console.error("Email not found in response");
+        }
+      } else {
+        console.error("User ID not found");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  // Função para buscar e filtrar os jogos
   function searchFilter(array: any, text: string) {
-    if (text == "") {
+    if (text === "") {
       return array;
     } else {
       return array.filter((singleGame: any) =>
@@ -23,6 +89,7 @@ export default function Home() {
     }
   }
 
+  // Submissão do formulário de busca
   function formSubmit(event: any) {
     event.preventDefault();
     try {
@@ -33,102 +100,83 @@ export default function Home() {
     }
   }
 
-  async function fetchData() {
-    try {
-      const response = await fetch(`/api/action/game/select`, {
-        method: "GET",
-      });
-
-      const responseJson = await response.json();
-
-      setData(responseJson.data);
-      setSaveData(responseJson.data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+  // Função para logout
   function logOut() {
     deleteCookie("authorization");
     router.push(`/user/login`);
   }
 
-  function gameClick(gameName: string) {
+  // Função ao clicar no jogo
+  function gameClick(gameName: string, gameId: number) {
+    setSelectedGameName(gameName);
+    setSelectedGameId(gameId);
     router.push(`/game/` + gameName);
   }
 
-  function iconClick() {
-    router.push(`/`);
-    router.reload();
-  }
-
-  function dateFormat(_date: string) {
-    // data esperada: 2024-09-12T17:19
-    const [date, time] = _date.split("T");
-    const [year, month, day] = date.split("-");
-
-    return `${day}/${month}/${year}`;
-  }
-
+  // UseEffect para buscar dados do usuário e jogos
+  useEffect(() => {
+    fetchData(); // Busca jogos
+    fetchDataEmail(); // Busca e-mail
+  }, []);
 
   return (
     <main className={styles.main}>
       <div className={styles.container}>
         <h1 className={styles.title} onClick={logOut}>Tales News</h1>
 
-        <a href="" className={styles.p}>
-          Inicio
-        </a>
-        <Link href={`/game/create`} className={styles.p}>
-          Adicionar Jogos
+        <a href="" className={styles.p}>Inicio</a>
+        <Link href={`/game/Create`} className={styles.p}>Adicionar Jogos</Link>
+        {/* O botão para direcionar para a pagina de Favoritos */}
+        <Link href={`/favorite/favorite`}  className={styles.p}>
+          <button>Ver Favoritos</button>
         </Link>
-        <a href="" className={styles.p}>
-          Gêneros
-        </a>
 
-        <div className={styles.NavBarSearch}>
-          <img src="" alt="" />
+        {/* Barra de pesquisa */}
+        <form className={styles.NavBarSearch} onSubmit={formSubmit}>
           <input
             type="text"
             className={styles.BarSearch}
             placeholder="Pesquisar"
+            onChange={(e) => setName(e.target.value)}
           />
-        </div>
+        </form>
 
         <div className={styles.NavBarLog}>
-          <label>Teste</label>
           <button className={styles.BtnRegister} onClick={logOut}>
             Sair
           </button>
+
+          {/* Exibe o e-mail do usuário */}
+          <div>
+            {userEmail ? (
+              <h2>Seu e-mail é: {userEmail}</h2>
+            ) : (
+              <p>Carregando e-mail...</p>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Card dos Jogos Arrumar Home Page */}
+      {/* Card dos Jogos */}
       <div className={styles.mainContainer}>
         <div className={styles.leftContainer}></div>
       </div>
 
       <div className={styles.rightContainer}>
-        {data != undefined && Array.isArray(data) ? (
+        {data && Array.isArray(data) ? (
           data.map((Game: any) => (
             <div
-              key={Game.name}
-              onClick={() => {
-                gameClick(Game.name);
-              }}
+              key={Game.id}
+              onClick={() => gameClick(Game.name, Game.id)}
               className={styles.card}
             >
-              <img src={Game.imageURL} className={styles.cardImg} onClick={() => {gameClick(Game.name)}} alt="" />
-
+              <img
+                src={Game.imageURL}
+                className={styles.cardImg}
+                alt={Game.name}
+              />
               <div className={styles.cardInfos}>
                 <h2>{Game.name}</h2>
-                {/*<p>{dateFormat(Game.releaseDate)}</p>
-                <p>{Game.genre}</p>
-                <p>{Game.description}</p>*/}
               </div>
             </div>
           ))
@@ -140,6 +188,7 @@ export default function Home() {
   );
 }
 
+// Função para proteger a rota e verificar o token
 export function getServerSideProps({ req, res }: any) {
   try {
     const token = getCookie("authorization", { req, res });

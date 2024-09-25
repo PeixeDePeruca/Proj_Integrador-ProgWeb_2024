@@ -17,6 +17,9 @@ CREATE TABLE "game" (
     "imageURL" TEXT,
     "videoURL" TEXT,
     "description" TEXT,
+    "genre" TEXT,
+    "download" TEXT,
+    "imageGame" TEXT,
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" DATETIME NOT NULL
 );
@@ -51,11 +54,38 @@ CREATE TABLE "download" (
 );
 
 -- CreateTable
+CREATE TABLE "imageGame" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" DATETIME NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "favorite" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "userId" INTEGER NOT NULL,
+    "gameId" INTEGER NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    CONSTRAINT "favorite_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "favorite_gameId_fkey" FOREIGN KEY ("gameId") REFERENCES "game" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
 CREATE TABLE "_gameTogenre" (
     "A" INTEGER NOT NULL,
     "B" INTEGER NOT NULL,
     CONSTRAINT "_gameTogenre_A_fkey" FOREIGN KEY ("A") REFERENCES "game" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT "_gameTogenre_B_fkey" FOREIGN KEY ("B") REFERENCES "genre" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "_gameToimageGame" (
+    "A" INTEGER NOT NULL,
+    "B" INTEGER NOT NULL,
+    CONSTRAINT "_gameToimageGame_A_fkey" FOREIGN KEY ("A") REFERENCES "game" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT "_gameToimageGame_B_fkey" FOREIGN KEY ("B") REFERENCES "imageGame" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -97,10 +127,25 @@ CREATE UNIQUE INDEX "download_id_key" ON "download"("id");
 CREATE UNIQUE INDEX "download_name_key" ON "download"("name");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "imageGame_id_key" ON "imageGame"("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "imageGame_name_key" ON "imageGame"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "favorite_userId_gameId_key" ON "favorite"("userId", "gameId");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "_gameTogenre_AB_unique" ON "_gameTogenre"("A", "B");
 
 -- CreateIndex
 CREATE INDEX "_gameTogenre_B_index" ON "_gameTogenre"("B");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "_gameToimageGame_AB_unique" ON "_gameToimageGame"("A", "B");
+
+-- CreateIndex
+CREATE INDEX "_gameToimageGame_B_index" ON "_gameToimageGame"("B");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_downloadTogame_AB_unique" ON "_downloadTogame"("A", "B");

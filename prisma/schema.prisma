@@ -25,6 +25,7 @@ model user {
   updated_at DateTime @updatedAt
 
   ratings rating[]
+  favorites favorite[]
 }
 
 
@@ -38,6 +39,7 @@ model game {
   description String?
   genre String?
   download String?
+  imageGame String?
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
@@ -45,6 +47,8 @@ model game {
   ratings rating[]
   genres genre[]
   downloads download[]
+  imageGames imageGame[]
+  favorites favorite[]
 }
 
 model rating {
@@ -82,4 +86,29 @@ model download {
   updated_at DateTime @updatedAt
 
   games game[]
+}
+
+model imageGame {
+  id Int @id @unique @default(autoincrement())
+
+  name String @unique
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  games game[]
+}
+
+model favorite {
+  id        Int      @id @default(autoincrement())
+
+  userId    Int
+  gameId    Int
+  user      user     @relation(fields: [userId], references: [id])
+  game      game     @relation(fields: [gameId], references: [id])
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, gameId]) 
 }

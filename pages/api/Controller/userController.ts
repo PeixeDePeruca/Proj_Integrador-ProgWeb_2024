@@ -51,3 +51,17 @@ export async function login(_email:string , _password:string) {
         return { status: 500, message: 'Something went wrong' };
     }
 }
+
+export async function findEmailC(_email: string) {
+    try {
+        const user = await findUserByEmail(_email); // Usando a função correta para buscar e-mail
+        if (!user) {
+            return { status: 404, message: 'User not found' };
+        }
+
+        return { status: 200, message: 'User found', data: user };
+    }
+    catch(err){
+        return { status: 500, message: 'Something went wrong' };
+    }
+}

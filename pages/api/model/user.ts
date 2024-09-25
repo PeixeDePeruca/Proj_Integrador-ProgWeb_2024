@@ -43,3 +43,14 @@ export async function findUserLogin(_email:string , _password:string) {
 
     return user;
 }
+
+
+export async function findEmail(_email: string) {
+    const user = await prisma.user.findUnique({
+        where: {
+            email: _email,
+        },
+    });
+
+    return user; 
+}

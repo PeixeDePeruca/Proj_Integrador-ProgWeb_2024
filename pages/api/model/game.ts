@@ -1,6 +1,6 @@
 import { prisma } from "@/db";
 
-export async function createGame(_name: string, _releaseDate: string, _imageURL: string, _videoURL: string, _description: string, _download: string) {
+export async function createGame(_name: string, _releaseDate: string, _imageURL: string, _videoURL: string, _description: string, _download: string, _imageGame:string) {
     const game = await prisma.game.create({
         data: {
             name: _name,
@@ -11,8 +11,9 @@ export async function createGame(_name: string, _releaseDate: string, _imageURL:
             downloads: {
                 create: {
                     name: _download,
-                }
-            }
+                },
+            },
+            imageGame: _imageGame,
         }
     });
 
@@ -31,7 +32,8 @@ export async function findGameByName(_name: string) {
                 }
             },
             genres: true,
-            downloads: true
+            downloads: true,
+            imageGames: true,
         }
     });
 

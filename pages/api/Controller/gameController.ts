@@ -1,6 +1,7 @@
 import { createGame , findGameByName , selectGames } from "../model/game";
+import { findGenreByName } from "../model/genre";
 
-export async function createGameC(_name:string , _releaseDate: string, _description:string , _imageURL="" , _videoURL="", _download:string ) {
+export async function createGameC(_name:string , _releaseDate: string, _genres: Array <any>, _description:string , _imageURL="" , _videoURL="", _download:string, _imageGame:string ) {
     try{
         const gameByName = await findGameByName(_name);
 
@@ -8,7 +9,19 @@ export async function createGameC(_name:string , _releaseDate: string, _descript
             return {status: 400 , message: 'Name already registered'};
         }
 
-        const response = await createGame(_name , _releaseDate , _imageURL , _videoURL , _description, _download);
+        var verifiedGenres = [];
+
+        for ( let i=0; i < _genres.length; i ++ ) {
+            let genreByName = await findGenreByName(_genres[i]);
+
+            if ( genreByName == undefined ) {
+                return { status: 404, message: 'Genre not found' };
+            }
+
+            verifiedGenres.push(genreByName.id);
+        }
+
+        const response = await createGame(_name , _releaseDate , _imageURL , _videoURL , _description, _download, _imageGame);
 
         return { status: 201 , message: 'Game created' , data: response };
     }
