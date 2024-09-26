@@ -11,7 +11,7 @@ export default function Home() {
   const [data, setData]: any = useState(undefined);
   const [saveData, setSaveData]: any = useState(undefined);
   const [name, setName] = useState("");
-  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [userEmail, setUserEmail] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false);
   const [selectedGameName, setSelectedGameName] = useState<string | null>(null);
   const [selectedGameId, setSelectedGameId] = useState<number | null>(null);
@@ -31,7 +31,7 @@ export default function Home() {
 
   async function toggleFavorite() {
     const userId = getCookie("userId");
-  
+
     if (userId && data?.id) {
       if (isFavorite) {
         // Remover dos favoritos
@@ -53,7 +53,7 @@ export default function Home() {
     }
   }
   // Função para buscar o email
-  async function fetchDataEmail() {
+  /*async function fetchDataEmail() {
     try {
       const userId = getCookie("userId"); // Obtenha o userId dos cookies
       if (userId) {
@@ -74,6 +74,20 @@ export default function Home() {
         console.error("User ID not found");
       }
     } catch (err) {
+      console.log(err);
+    }
+  }*/
+
+  function fetchDataEmail() {
+    try {
+      const cookieAuth = getCookie('authorization');
+
+      const readedToken = checkToken(cookieAuth);
+
+      setUserEmail(readedToken.email);
+    }
+
+    catch (err) {
       console.log(err);
     }
   }
@@ -127,7 +141,7 @@ export default function Home() {
         <a href="" className={styles.p}>Inicio</a>
         <Link href={`/game/Create`} className={styles.p}>Adicionar Jogos</Link>
         {/* O botão para direcionar para a pagina de Favoritos */}
-        <Link href={`/favorite/favorite`}  className={styles.p}>
+        <Link href={`/favorite/favorite`} className={styles.p}>
           <button>Ver Favoritos</button>
         </Link>
 
